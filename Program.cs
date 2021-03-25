@@ -21,7 +21,7 @@ namespace Homework5
         static async Task Main(string[] args)
         {
             Console.WriteLine("SERVER");
-            localPort = Int32.Parse("8080");
+            localPort = 8080;
             Console.WriteLine();
             context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
@@ -52,7 +52,7 @@ namespace Homework5
         {
             try
             {
-                IPEndPoint localIP = new IPEndPoint(IPAddress.Parse("0.0.0.0"), localPort);
+                IPEndPoint localIP = new IPEndPoint(IPAddress.Any, localPort);
                 listeningSocket.Bind(localIP);
 
                 while (flager)
